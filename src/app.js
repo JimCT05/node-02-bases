@@ -7,5 +7,13 @@
 
 const { getUserByID }  = require('./js-foundation/03-callbacks');
 
+const id = 2;
 
-getUserByID(1);
+
+getUserByID(id, function (error, user){
+    if(error){
+        throw new Error(error);
+    }
+
+    console.log(user);
+});

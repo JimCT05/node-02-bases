@@ -5,14 +5,22 @@ const users = [{
     id: 2,
     name: 'Jane Doe',
 }
-];function getUserByID(id){
+];
+
+function getUserByID(id, callback){
     //arrow function
     // users.find(user => user.id === id);
 
     const user = users.find( function(user){
         return user.id === id;
     });
-    console.log({user});
+    // console.log({user});
+
+    if(!user){
+        return callback(`User not found with id ${id}`);
+    }
+
+    return callback(null, user);
 }
 
 
