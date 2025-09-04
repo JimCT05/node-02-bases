@@ -5,12 +5,13 @@
 
 // require('./js-foundation/02-destructuring');
 
-const { getUserByID }  = require('./js-foundation/03-callbacks');
+// const { getUserByID }  = require('./js-foundation/03-callbacks');
+const { getUserByID }  = require('./js-foundation/04-arrow');
 
 const id = 2;
 
 
-getUserByID(id, function (error, user){
+getUserByID(id,(error, user) => {
     if(error){
         throw new Error(error);
     }
