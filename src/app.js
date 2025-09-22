@@ -6,15 +6,17 @@
 // require('./js-foundation/02-destructuring');
 
 // const { getUserByID }  = require('./js-foundation/03-callbacks');
-const { getUserByID }  = require('./js-foundation/04-arrow');
+// const { getUserByID }  = require('./js-foundation/04-arrow');
 
-const id = 2;
+// const id = 2;
+
+// getUserByID(id,(error, user) => {
+//     if(error){
+//         throw new Error(error);
+//     }
+//     console.log(user);
+// });
+const getPokemonByID = require('./js-foundation/06-promises');
 
 
-getUserByID(id,(error, user) => {
-    if(error){
-        throw new Error(error);
-    }
-
-    console.log(user);
-});
+console.log(getPokemonByID);
