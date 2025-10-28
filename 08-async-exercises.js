@@ -28,12 +28,55 @@ function saludarConRetraso(nombre, callback) {
 saludarConRetraso("Jim Edson", (nombre)=> {
   console.log(`Hola, ${nombre}`);
 });
+// 2. Crea tres funciones task1(callback), task2(callback) y task3(callback). 
+//    Cada función debe tardar 1 segundo en ejecutarse y luego llamar al callback.
 
+function task1(callback) {
+  setTimeout(() => {
+    console.log("Tarea 1 completada");
+    callback();
+  }, 1000);
+}
 
+function task2(callback) {
+  setTimeout(() => {
+    console.log("Tarea 2 completada");
+    callback();
+  }, 1000);
+}
+
+function task3(callback) {
+  setTimeout(() => {
+    console.log("Tarea 3 completada");
+    callback();
+  }, 1000);
+}
+
+task1(() => {
+    task2(() => {
+        task3(() => {
+            console.log("Todas las tareas completadas");
+        });
+    });
+});
 
 // 3. Crea una función para verificar un número que retorne una Promesa. 
 //    Si el número es par, la promesa se resuelve con el mensaje "Número par". 
 //    Si el número es impar, la promesa se rechaza con el mensaje "Número impar".
+
+function verificarNumero(numero){
+    return new Promise((resolve, reject)=>{
+        if(numero % 2 === 0){
+            resolve("Número Par")
+        }else{
+            reject("Numero Impar")
+        }
+    })
+}
+
+verificarNumero(4)
+    .then(resultado => console.log(resultado))
+    .catch(error => console.log(error));
 
 // 4. Crea tres funciones que devuelvan promesas:
 //    firstTask(): tarda 1s y muestra "Primera tarea completada".
